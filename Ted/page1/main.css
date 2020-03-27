@@ -1,0 +1,231 @@
+:root {
+    --background-color: #fcf9f5;
+    --background-color-albums: #dbd7d0;
+
+    --gradient-alpha: 0.3;
+    --title-alpha: 0.80;
+
+    --title-gradient-color1: rgba(182, 141, 67, var(--title-alpha));
+    --title-gradient-color2: rgba(174, 180, 83, var(--title-alpha));
+    --title-gradient-color3: rgba(122, 171, 79, var(--title-alpha));
+
+    --gradient-color1: rgba(182, 141, 67, var(--gradient-alpha));
+    --gradient-color2: rgba(174, 180, 83, var(--gradient-alpha));
+    --gradient-color3: rgba(122, 171, 79, var(--gradient-alpha));
+
+    --main-text-color: #403e3d;
+    --nav-text-color: #5e5c5a;
+    --footer-text-color: #807d7a;
+
+    --main-shadow-color: #918e86;
+
+    --cover-size: 215px;
+}
+
+body {
+    font-family: 'Gelasio';
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+#header {
+    margin: auto;
+    width: 750px;
+
+    margin-top: 50px;
+}
+
+#header>h1 {
+    margin: 0px;
+    margin-bottom: -15px;
+    padding: 0px;
+    width: min-content;
+    font-size: 100px;
+    font-weight: bolder;
+    letter-spacing: -3px;
+
+    background: -webkit-linear-gradient(0deg,
+            var(--title-gradient-color1) 0%,
+            var(--title-gradient-color2) 50%,
+            var(--title-gradient-color3) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#header>nav {
+    margin-bottom: 25px;
+}
+
+#header>nav>a {
+    font-weight: lighter;
+    margin-left: 40px;
+    text-decoration: none;
+    color: var(--nav-text-color);
+    transition: color 0.2s;
+}
+
+#header>nav>a:hover {
+    color: var(--background-color);
+    transition: color 0.2s;
+}
+
+#albums {
+    margin: -10px;
+    padding: 10px;
+    width: 100%;
+    height: 500px;
+
+    background-color: var(--background-color-albums);
+    box-shadow: inset 0px 0px 15px 0px var(--main-shadow-color);
+}
+
+#albums-gradient {
+    margin: -10px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+
+    background: -webkit-linear-gradient(0deg,
+            var(--gradient-color1) 0%,
+            var(--gradient-color2) 50%,
+            var(--gradient-color3) 100%);
+}
+
+#albums-wrapper {
+    width: 900px;
+    margin: auto;
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.album {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 13px;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--background-color);
+    color: var(--main-text-color);
+    box-shadow: 0px 0px 12px 0px var(--main-shadow-color);
+
+    flex: 1;
+    overflow: hidden;
+
+    transition:
+        transform 0.2s,
+        opacity 1.5s,
+        flex 1.2s,
+        padding 1.2s,
+        margin 1.2s;
+}
+
+.album:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 4px 16px -2px var(--main-shadow-color);
+}
+
+.collapse {
+    opacity: 0;
+    white-space: nowrap;
+    flex: .0001;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+}
+
+.open {
+    opacity: 0;
+    white-space: nowrap;
+    flex: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    animation:
+        enterOpacity 1.5s forwards,
+        enterFlex 1.2s forwards;
+}
+
+@keyframes enterOpacity {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes enterFlex {
+    to {
+        flex: 1;
+        padding-left: 13px;
+        padding-right: 13px;
+    }
+}
+
+.album>.cover {
+    margin-left: auto;
+    margin-right: auto;
+    width: var(--cover-size);
+    height: var(--cover-size);
+}
+
+.album>.title {
+    margin-top: 7px;
+    font-size: 1.3rem;
+    font-weight: bolder;
+}
+
+.album>.artist {
+    margin-left: 2px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.album>.genres {
+    margin-top: 17px;
+    margin-left: 12px;
+    font-size: 14px;
+}
+
+.album>.genres>ol {
+    margin-left: -39px;
+    margin-top: 1px;
+    font-size: 12px;
+}
+
+.album>.genres>ol>li {
+    list-style-type: circle;
+}
+
+.album>a {
+    margin: auto;
+}
+
+.album>a>.youtube-logo {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 35px;
+    height: 25px;
+    filter: invert(17%);
+    transition: filter 0.2s;
+    cursor: pointer;
+}
+
+.album>a>.youtube-logo:hover {
+    filter: invert(10%);
+    transition: filter 0.2s;
+}
+
+#footer {
+    color: var(--footer-text-color);
+    text-align: center;
+    font-style: italic;
+    font-size: 0.7rem;
+    margin-top: 30px;
+}
+
+#footer>span>a{
+    color: var(--footer-text-color);
+}
