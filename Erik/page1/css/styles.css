@@ -1,0 +1,158 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #fef4f0;
+
+}
+
+* {
+  line-height: 1.4210526316rem;
+}
+
+.navbar-expand-lg .navbar-collapse {
+  background-color: #fef4f0;
+}
+
+.navbar-expand-lg .navbar-nav {
+  -ms-flex-direction: row;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: auto !important;
+  margin-right: 0%;
+  background-color: #fef4f0;
+}
+
+.mr-auto {
+  /* margin-left: auto !important;
+    margin-right: 0%; */
+}
+
+.navbar {}
+
+.content {
+  margin-top: 10;
+}
+
+.card-body {
+  padding: 1.25rem;
+  padding: 0.5rem;
+}
+
+.card {
+  flex-direction: column;
+  transition-duration: 1s;
+}
+
+.card:hover {
+  background-color: #AEFCD2;
+  /* background-color: #AEFCE6; */
+  transform: scale(1.01);
+  box-shadow: 0px 10px 10px 5px #bdbdbd;
+
+}
+
+.cardSet1 {
+  background-color: #fdc5ae;
+
+}
+
+.cardSet2 {
+  background-color: #c2e1fc;
+}
+
+.cardSet3 {
+
+  background-color: #fcc2c2;
+}
+
+h1 {
+  font-family: "Montserrat-bold", sans-serif;
+  line-height: 4.9736842105rem;
+
+}
+
+
+h3.card-title {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  font-family: "Montserrat-bold", sans-serif;
+  position: relative;
+}
+
+h5.card-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+p.content {
+  font-size: 0.8rem;
+  line-height: 1.15rem;
+}
+
+
+.wrap {
+  overflow-x: hidden;
+}
+
+.slideInBottom {
+  /* animation-name: slideInBottom; */
+}
+
+.animated {
+  animation-duration: 3s;
+  animation-fill-mode: both;
+}
+
+.animated2 {
+  animation-duration: 3.5s;
+  animation-fill-mode: both;
+}
+
+.animated3 {
+  animation-duration: 4s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translate3d(0, 120%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@media (min-width: 576px) {
+  .card-deck {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .card-deck .card {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex: 1 0 0%;
+    flex: 1 0 0%;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  @media (max-width: 575px) {
+
+
+    .card {
+      margin: 15px;
+    }
+
+    .mt-5 {
+      margin-top: 0rem !important;
+    }
+  }
