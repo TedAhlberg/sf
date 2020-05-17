@@ -1,0 +1,66 @@
+:root {
+    --main-bg-color: #fffaf4;
+    --main-color1: #8fb1e9;
+    /* #b7c8e4 */
+    /* #809fd5 */
+    
+    --title-font: 'Work Sans'
+}
+
+body {
+    background-color: var(--main-bg-color);
+}
+
+input[type=text] {
+    color: var(--main-color1);
+    height: 38px;
+    width: 38px;
+    border: 0px;
+    background-color: transparent;
+    background-image: url('./res/search-icon.png');
+    background-repeat: no-repeat;
+    font-family: var(--title-font);
+    font-size: 20pt;
+    padding: 0px 0px 0px 50px;
+    cursor: pointer;
+}
+
+input[type=text]:focus {
+    width: 100%;
+    cursor: auto;
+}
+
+.search-border {
+    margin-top: 2px;
+    margin-left: 50px;
+    border-radius: 2px;
+    height: 3px;
+    background-color: var(--main-color1);
+}
+
+#header {
+    background-image: url("./res/header.png");
+    display: flex;
+    justify-content: center;
+    width: 656px;
+    height: 231px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#header>h1 {
+    font-family: var(--title-font), sans-serif;
+    margin: 0px;
+    color: var(--main-bg-color);
+    margin-top: 35px;
+    font-size: 90pt;
+    letter-spacing: -5px;
+}
+
+#content {
+    margin-top: -25px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px
+}
