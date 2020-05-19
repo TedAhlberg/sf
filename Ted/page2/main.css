@@ -65,7 +65,7 @@ form {
 }
 
 .search-icon-focus {
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
 
 input[type=text] {
@@ -73,14 +73,14 @@ input[type=text] {
     height: 30px;
     width: 0px;
     border: 0px;
-    background-color: transparent;    
+    background-color: transparent;
     font-family: var(--text-font);
     font-size: 13pt;
     padding: 0px 0px 0px 0px;
     margin: 0px 0px 0px 12px;
 }
 
-.input-focus{
+.input-focus {
     width: 84%;
     cursor: auto;
 }
@@ -92,7 +92,7 @@ input[type=text] {
     border-radius: 2px;
     height: 2px;
     background-color: #d6deeb;
-    
+
     transition: width 1s ease-in-out;
 }
 
@@ -101,34 +101,79 @@ input[type=text] {
 }
 
 #navigation {
-    height: 225vh;
+    height: 100vh;
     float: left;
-    margin: 7px 40px 0px -20px;
+    margin: 7px 0px 0px -30px;
+}
+
+.nav-item {
+    display: flex;
+    margin: 10px 0px 0px 0px;
+    cursor: pointer;
 }
 
 .nav-point {
     width: 22px;
     height: 21px;
     background-image: url('./res/nav-point.png');
-}
 
-.nav-item {
-    display: flex;
-    margin: 10px 0px 0px 0px;
+    transition:
+        opacity 0.3s,
+        scale 0.3s;
 }
 
 .nav-item>a {
     font-family: var(--title-font);
-    font-size: 18pt;
+    font-size: 19.5pt;
     font-weight: 900;
     letter-spacing: 0.7;
     color: var(--main-color1);
-    margin: -3px 0px 0px 7px;
+    margin: -4px 0px 0px 7px;
     text-decoration: none;
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s,
+        scale 0.3s;
+}
+
+.nav-item-mouseover {
+    scale: 1.04;
+    opacity: 0.75;
+}
+
+.nav-arrow {
+    opacity: 0;
+    margin: 0px 0px 0px 20px;
+    width: 19px;
+    height: 22px;
+    background-image: url('./res/nav-arrow.png');
+
+    transition:
+        opacity 0.3s,
+        margin 0.3s,
+        scale 0.3s;
+}
+
+.nav-arrow-mouseover {
+    scale: 1.04;
+    margin: 0px 0px 0px 10px;
+    opacity: 0.75;
 }
 
 .article {
-    margin: 0px 0px 30px 0px;
+    opacity: 0;
+    margin: 0px 0px 30px 230px;
+
+    animation:
+        enterArticle 1.25s forwards;
+}
+
+@keyframes enterArticle {
+    to {
+        opacity: 1;
+        margin-left: 180px;
+    }
 }
 
 h2 {
@@ -145,7 +190,7 @@ p {
     font-family: var(--text-font);
     margin: 5px 0px 0px 0px;
     line-height: 1.65;
-    width: 41em;
+    width: 470px;
 }
 
 p+p {
