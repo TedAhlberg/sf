@@ -80,10 +80,15 @@ input[type=text] {
     margin: 0px 0px 0px 12px;
 }
 
+input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
 .input-focus {
     width: 84%;
     cursor: auto;
 }
+
 
 .search-border {
     width: 0%;
