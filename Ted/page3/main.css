@@ -1,0 +1,66 @@
+body {
+    background-color: rgba(38, 40, 43, 1);
+}
+
+#gradient {
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 1) 30%,
+            rgba(38, 40, 43, 1) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#content {
+    position: relative;
+    width: 941px;
+    margin: 0px auto 0px auto;
+}
+
+#tv-frame {
+    margin: 20px auto 0px auto;
+    width: 941px;
+    height: 609px;
+    position: absolute;
+    background-image: url('./res/tv-frame.png');
+    background-repeat: no-repeat;
+    z-index: 10;
+}
+
+#crt-wrapper {
+    margin: 0px auto 0px auto;
+    padding-top: 105px;
+    position: relative;
+    width: 450px;
+    height: 345px;
+}
+
+#cover {
+    background-image: url('./res/cover2.png');
+    position: absolute;
+    width: 450px;
+    height: 345px;
+    z-index: 0;
+}
+
+#crt::before {
+    width: 450px;
+    height: 345px;
+    z-index: 1;
+
+    content: " ";
+    position: absolute;
+    background:
+        /* horisontal lines */
+        linear-gradient(rgba(18, 16, 16, 0) 50%,
+            rgba(0, 0, 0, 0.4) 50%),
+
+        /* vertical lines */
+        linear-gradient(90deg,
+            rgba(255, 0, 0, 0.05),
+            rgba(0, 255, 0, 0.05),
+            rgba(0, 0, 255, 0.05));
+    background-size: 100% 2px, 4px 100%;
+    pointer-events: none;
+}
