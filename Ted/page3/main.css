@@ -1,5 +1,8 @@
+@import './css/flicker.css';
+@import './css/animations.css';
+
 body {
-    background-color: rgba(38, 40, 43, 1);
+    background-color: rgb(38, 40, 43);
 }
 
 #gradient {
@@ -15,17 +18,34 @@ body {
 #content {
     position: relative;
     width: 941px;
-    margin: 0px auto 0px auto;
+    margin: -30px auto 0px auto;
+}
+
+#header {
+    width: 100%;
+    margin-left: -15px;
+}
+
+#header>h1 {
+    margin: -15px 0px 0px auto;
+    font-family: 'Permanent Marker';
+    font-size: 80pt;
+    text-align: center;
+    letter-spacing: -2px;
+
+    -webkit-text-fill-color: rgb(19, 18, 18);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: rgb(98, 98, 100);
 }
 
 #tv-frame {
-    margin: 20px auto 0px auto;
+    margin: 10px auto 0px auto;
     width: 941px;
     height: 609px;
     position: absolute;
     background-image: url('./res/tv-frame.png');
     background-repeat: no-repeat;
-    z-index: 10;
+    z-index: 5;
 }
 
 #crt-wrapper {
@@ -36,31 +56,82 @@ body {
     height: 345px;
 }
 
-#cover {
+.cover {
     background-image: url('./res/cover2.png');
     position: absolute;
+    display: block;
     width: 450px;
     height: 345px;
     z-index: 0;
+    overflow: hidden;
 }
 
-#crt::before {
+.cover-off {
+    background-image: none;
+    background-color: black;
+    overflow: hidden;
+}
+
+.cover-start {
+    animation: turn-on 3.5s linear;
+    animation-fill-mode:forwards
+}
+
+.crt::before {
     width: 450px;
     height: 345px;
-    z-index: 1;
-
+    z-index: 2;
+    
     content: " ";
     position: absolute;
-    background:
-        /* horisontal lines */
-        linear-gradient(rgba(18, 16, 16, 0) 50%,
-            rgba(0, 0, 0, 0.4) 50%),
-
-        /* vertical lines */
-        linear-gradient(90deg,
-            rgba(255, 0, 0, 0.05),
-            rgba(0, 255, 0, 0.05),
-            rgba(0, 0, 255, 0.05));
-    background-size: 100% 2px, 4px 100%;
     pointer-events: none;
+
+    background:
+    /* horisontal lines */
+    linear-gradient(rgba(38, 40, 43, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 50%),
+    
+    /* vertical lines */
+    linear-gradient(90deg,
+    rgba(255, 0, 0, 0.04),
+    rgba(0, 255, 0, 0.04),
+    rgba(0, 0, 255, 0.04));
+    background-size: 100% 2px, 4px 100%;
+}
+    
+.crt::after {
+    width: 450px;
+    height: 345px;
+    z-index: 2;
+    
+    content: " ";
+    position: absolute;
+    pointer-events: none;
+
+    /* flicker */
+    background:rgba(38, 40, 43, 0.14);
+    
+    animation: flicker 0.25s infinite;
+}
+
+.crt-off {
+    opacity: 0;
+    animation: none;
+}
+
+#text {
+    padding: 5px 0px 0px 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.text{
+    font-family: 'VT323';
+    color: rgb(20, 206, 20);
+    opacity: 0.6;
+    font-size: 43pt;
+}
+
+.text-off {
+    opacity: 0;
 }
