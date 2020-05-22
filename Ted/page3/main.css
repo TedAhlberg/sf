@@ -1,8 +1,14 @@
 @import './css/flicker.css';
 @import './css/animations.css';
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: rgb(38, 40, 43);
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #gradient {
@@ -59,7 +65,6 @@ body {
     position: absolute;
     opacity: 0;
     z-index: 6;
-    cursor: pointer;
 }
 
 #arrow-right-wrapper {
@@ -70,7 +75,6 @@ body {
     position: absolute;
     opacity: 0;
     z-index: 6;
-    cursor: pointer;
     transform: scaleX(-1);
 }
 
@@ -84,7 +88,7 @@ body {
     transition: opacity 0.2s;
 }
 
-.arrow-hover {
+.arrow:hover {
     opacity: 0.3;
 }
 
@@ -111,7 +115,6 @@ body {
         right: 40px;
     }
 }
-
 
 #tv-frame {
     margin: 10px auto 0px auto;
@@ -150,6 +153,11 @@ body {
 .cover-start {
     animation: turn-on 3.5s linear;
     animation-fill-mode: forwards
+}
+
+.cover-switch {
+    opacity: 1;
+    animation: switch 2.5s forwards;
 }
 
 .crt::before {
@@ -223,6 +231,7 @@ body {
 
 .album-header {
     font-size: 40pt;
+    font-weight: 700;
     height: 100px;
     margin: 0px 0px -15px 0px;
     opacity: 0;
@@ -233,18 +242,18 @@ body {
 }
 
 .album-header-enter {
-    animation: enterTrack 1s forwards;
+    animation: enterElement 1s forwards;
 }
 
 .album-tracks {
     margin: 0px auto 0px auto;
-    width: 350px;
+    width: 365px;
 }
 
 .track {
     display: flex;
     opacity: 0;
-    animation: enterTrack 1s forwards;
+    animation: enterElement 1s forwards;
 }
 
 .track-title {
@@ -252,8 +261,33 @@ body {
     flex-grow: 10;
 }
 
-@keyframes enterTrack {
+#footer {
+    margin: 40px 0px 15px 0px;
+    font-size: 8pt;
+    opacity: 0;
+}
+
+#footer>span>a {
+    color: rgb(156, 156, 156)
+}
+.footer-enter {
+    opacity: 0;
+    animation: enterElement 1s forwards;
+}
+
+@keyframes enterElement {
     to {
         opacity: 1;
+    }
+}
+
+.hide-element {
+    opacity: 1;
+    animation: hideElement 0.5s forwards;
+}
+
+@keyframes hideElement {
+    to {
+        opacity: 0;
     }
 }
