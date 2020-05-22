@@ -21,10 +21,11 @@ setTimeout(() => {
   $("#arrow-left-wrapper").addClass("left-animation")
   $("#arrow-right-wrapper").addClass("right-animation")
   $("h1").addClass("header-animation")
-}, 3000)
+  displayAlbum(0)
+}, 4500)
 
+// Arrow hovers
 $(() => {
-  // Left arrow
   $("#arrow-left").on("mouseover", () => {
     $("#arrow-left").addClass("arrow-hover")
   })
@@ -32,7 +33,6 @@ $(() => {
     $("#arrow-left").removeClass("arrow-hover")
   })
 
-  // Right arrow
   $("#arrow-right").on("mouseover", () => {
     $("#arrow-right").addClass("arrow-hover")
   })
@@ -40,3 +40,33 @@ $(() => {
     $("#arrow-right").removeClass("arrow-hover")
   })
 })
+
+const displayAlbum = (i) => {
+  $(".album-header").text(info.albums[i].title)
+  $(".album-header").addClass("album-header-enter")
+  let j = 0;
+  let length = info.albums[i].tracklist.length
+  let loop = () => {
+    let title = info.albums[i].tracklist[j].title
+    let time = info.albums[i].tracklist[j].time
+
+    setTimeout(() => {
+      let $track = $(
+        "<div class=\"track\">" +
+          "<span class=\"track-title\">"
+           + title +
+          "</span>" +
+          "<span class=\"track-time\">"
+           + time +
+          "</span>" +
+        "</div>"
+      )
+      $track.appendTo(".album-tracks")
+
+      j++
+      if (j < length)
+        loop()
+    }, 200)
+  }
+  loop()
+}
