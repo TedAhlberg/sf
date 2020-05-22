@@ -21,7 +21,6 @@ $(() => {
     inputFocus()
 
   $("input").on("focus", () => {
-    console.log("focus")
     inputFocus()
   })
 
@@ -30,7 +29,6 @@ $(() => {
     if (value.length === 0)
       inputFocusout()
   })
-
 })
 
 //Navigation

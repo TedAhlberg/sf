@@ -1,5 +1,4 @@
-
-// Text fuction
+// Text function
 const showText = (i) => {
   let str = "CH0" + i
   $("#text").empty().text(str)
@@ -13,12 +12,31 @@ const showText = (i) => {
 setTimeout(() => {
   $("#crt").removeClass("crt-off")
   showText(1)
-  setTimeout(() => {
-    $("#cover").removeClass("cover-off")
-    $("#cover").addClass("cover-start")
-  })
+  $("#cover").removeClass("cover-off")
+  $("#cover").addClass("cover-start")
 }, 2000)
 
-$(() => {
+// Enter Site
+setTimeout(() => {
+  $("#arrow-left-wrapper").addClass("left-animation")
+  $("#arrow-right-wrapper").addClass("right-animation")
+  $("h1").addClass("header-animation")
+}, 3000)
 
+$(() => {
+  // Left arrow
+  $("#arrow-left").on("mouseover", () => {
+    $("#arrow-left").addClass("arrow-hover")
+  })
+  $("#arrow-left").on("mouseout", () => {
+    $("#arrow-left").removeClass("arrow-hover")
+  })
+
+  // Right arrow
+  $("#arrow-right").on("mouseover", () => {
+    $("#arrow-right").addClass("arrow-hover")
+  })
+  $("#arrow-right").on("mouseout", () => {
+    $("#arrow-right").removeClass("arrow-hover")
+  })
 })
